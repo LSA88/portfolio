@@ -30,7 +30,7 @@
   /* Size */
   --size-border-radius: 4px;
 
-  /* Animation */
+  /* Annimation */
   --animation-duration: 300ms;
 }
 
@@ -76,21 +76,21 @@ h2 {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
   color: var(--color-black);
-  margin: 8px 0px;
+  margin: 8px 0;
 }
 
 h3 {
   font-size: var(--font-regular);
-  font-weight: var(--weight-regular);
+  font-weight: var(--font-regular);
   color: var(--color-black);
-  margin: 8px 0px;
+  margin: 8px 0;
 }
 
 p {
   font-size: var(--font-regular);
-  font-weight: var(--weight-regular);
+  font-weight: var(--font-regular);
   color: var(--color-black);
-  margin: 4px 0px;
+  margin: 4px 0;
 }
 
 /* Navbar */
@@ -99,10 +99,9 @@ p {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: transparent;
   align-items: center;
-  color: var(--color-white);
   padding: 16px;
+  background-color: transparent;
   transition: all var(--animation-duration) ease-in-out;
   z-index: 1;
 }
@@ -112,13 +111,14 @@ p {
   padding: 8px;
 }
 
-.navbar__menu {
-  display: flex;
-}
-
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  color: white;
+}
+
+.navbar__menu {
+  display: flex;
 }
 
 .navbar__menu__item {
@@ -132,7 +132,7 @@ p {
 
 .navbar__menu__item:hover {
   border-color: var(--color-white);
-  border-radius: var(--size-border-radius);
+  background-color: var(--color-dark-pink);
 }
 
 .navbar__toggle-btn {
@@ -220,7 +220,7 @@ p {
 }
 
 .major__description {
-  font-size: (var(--font-small));
+  font-size: var(--font-small);
 }
 
 .job {
@@ -231,11 +231,6 @@ p {
 .job__description {
   margin: 0 16px;
   text-align: left;
-}
-
-.job__logo {
-  width: 120px;
-  height: 80px;
 }
 
 .job__name,
@@ -267,20 +262,18 @@ p {
 .skillset__title {
   color: var(--color-white);
 }
-
 .skillset__left {
   flex-basis: 60%;
   background-color: var(--color-dark-grey);
   padding: 20px 40px;
 }
 
+.skill {
+  margin-bottom: 32px;
+}
 .skill__description {
   display: flex;
   justify-content: space-between;
-}
-
-.skill {
-  margin-bottom: 32px;
 }
 
 .skill__bar {
@@ -326,7 +319,7 @@ p {
   color: var(--color-white);
 }
 
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
   top: 0;
@@ -357,7 +350,7 @@ p {
 
 .work__projects.anim-out {
   opacity: 0;
-  transform: scale(0.9) translateY(40px);
+  transform: scale(0.96) translateY(40px);
 }
 
 .project {
@@ -365,7 +358,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 280px;
   height: 250px;
   margin: 2px;
   background-color: var(--color-light-white);
@@ -402,7 +395,7 @@ p {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3:after {
@@ -410,9 +403,9 @@ p {
   display: block;
   position: relative;
   left: 50%;
-  width: 25px;
+  width: 50px;
   height: 2px;
-  margin-left: -12px;
+  transform: translateX(-50%);
   margin-top: 8px;
   background-color: var(--color-dark-white);
 }
@@ -420,7 +413,6 @@ p {
 /* Testimonial */
 #testimonials {
   background-color: var(--color-light-white);
-  margin: auto;
 }
 
 .testimonials {
@@ -436,7 +428,6 @@ p {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin: 12px;
 }
 
 .testimonial__avatar:nth-child(odd) {
@@ -495,12 +486,12 @@ p {
   width: 70px;
   height: 70px;
   font-size: 50px;
-  background-color: var(--color-pink);
   color: var(--color-white);
+  background-color: var(--color-pink);
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
-  transition: all 300ms ease-in;
+  transition: opacity 300ms ease-in;
 }
 
 .arrow-up.visible {
@@ -513,16 +504,25 @@ p {
   .navbar__toggle-btn {
     display: block;
   }
+
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-pink);
   }
 
+  #navbar.navbar--dark {
+    padding: 16px;
+  }
   .navbar__menu {
     flex-direction: column;
     text-align: center;
     width: 100%;
     display: none;
+  }
+
+  .navbar__menu.open {
+    display: block;
   }
 
   .about__majors {
